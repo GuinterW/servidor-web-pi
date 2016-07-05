@@ -14,7 +14,7 @@ router.get('/', function(req, res, next) {
 	wpi.digitalWrite(configPin, 1 );
 	console.log('ligou');
 
-	setTimeOut(function(){
+	(function(){
 		wpi.digitalWrite(configPin, 0 );
 		console.log('Desligou');
 	}, 3000);
