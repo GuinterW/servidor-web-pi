@@ -12,12 +12,12 @@ router.get('/', function(req, res, next) {
 	wpi.pinMode(configPin, wpi.OUTPUT);
 
 	wpi.digitalWrite(configPin, 1 );
-	console.log('ligou');
 
 	setTimeout(function(){
 		wpi.digitalWrite(configPin, 0 );
-		console.log('Desligou');
 	}, 3000);
+
+	res.sendStatus(200);
 });
 
 module.exports = router;
