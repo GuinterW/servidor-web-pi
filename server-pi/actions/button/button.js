@@ -57,9 +57,6 @@ button.prototype.read = function(pin){
         gpio.read(pin, function(err, value) {
             console.log('The value is ' + value);
         });
-        if(status==1){
-            //sendRequest(this.url);          
-        }
     }, configTimeout);
 }
 
