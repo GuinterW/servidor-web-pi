@@ -1,8 +1,7 @@
-var action = require('./../../routes/unlock.js');
 var wpi = require('wiring-pi');
 
 function button(){
-     
+     var url = "localhost:3000/unlock";
 }
 
 button.prototype.configInput = function(pin){
@@ -17,7 +16,9 @@ button.prototype.read = function(pin){
     setInterval(function() {
         var status = wpi.digitalRead(pin);
         if(status==1){
-            action.unlock();
+            var xmlhttp = new XMLHttpRequest();
+            xmlhttp.open("GET", this.url, false);
+            xmlhttp.send(null);
         }
     }, configTimeout);
 }

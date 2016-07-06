@@ -3,22 +3,21 @@ var wpi = require('wiring-pi');
 var router = express.Router();
 
 /* GET home page. */
-module.exports = {
-	router.get('/', function(req, res, next){
-		unlock : function() {
+
+router.get('/', function(req, res, next) {
+	
+	var configPin = 7;
 		
-			var configPin = 7;
-				
-			wpi.setup('wpi');
-			wpi.pinMode(configPin, wpi.OUTPUT);
+	wpi.setup('wpi');
+	wpi.pinMode(configPin, wpi.OUTPUT);
 
-			wpi.digitalWrite(configPin, 1);
+	wpi.digitalWrite(configPin, 1);
 
-			setTimeout(function(){
-				wpi.digitalWrite(configPin, 0);
-			}, 3000);
+	setTimeout(function(){
+		wpi.digitalWrite(configPin, 0);
+	}, 3000);
 
-			res.sendStatus(200);
-		}
-	});
-};
+	res.sendStatus(200);
+});
+
+module.exports = router;
