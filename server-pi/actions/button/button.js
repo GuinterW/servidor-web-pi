@@ -16,7 +16,10 @@ button.prototype.read = function(pin){
     setInterval(function() {
         var status = wpi.digitalRead(pin);
         if(status==1){
-            window.location.href="localhost:3000/unlock";
+            $.ajax({
+                url: 'localhost:3000/unlock',
+                async: false
+            });
         }
     }, configTimeout);
 }
