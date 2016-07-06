@@ -29,11 +29,11 @@ button.prototype.read = function(pin){
                 console.log('The value is ' + value);
             }
             if(value==true){
-                this.configOutput(7);
-                this.write(7, 1);
+                button.configOutput(7);
+                button.write(7, 1);
 
                 setTimeout(function(){
-                    this.write(7, 0);
+                    button.write(7, 0);
                 }, 3000);
             }
         });
