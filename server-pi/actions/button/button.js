@@ -2,7 +2,7 @@ var wpi = require('wiring-pi');
 var gpio = require('rpi-gpio');
 
 function button(){
-    var url = "localhost:3000/unlock";
+    
 }
 
 button.prototype.configInput = function(pin){
@@ -29,11 +29,15 @@ button.prototype.read = function(pin){
                 console.log('The value is ' + value);
             }
             if(value==true){
-                button.configOutput(7);
-                button.write(7, 1);
+                var configPin = 7;
+
+                wpi.setup('wpi');
+                wpi.pinMode(configPin, wpi.OUTPUT);
+
+                wpi.digitalWrite(configPin, 1);
 
                 setTimeout(function(){
-                    button.write(7, 0);
+                    wpi.digitalWrite(configPin, 0);
                 }, 3000);
             }
         });
