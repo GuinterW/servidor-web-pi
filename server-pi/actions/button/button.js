@@ -8,7 +8,7 @@ button.prototype.configInput = function(pin){
     // GPIO pin of the led
     var configPin = pin;
     wpi.setup('wpi');
-    wpi.pinMode(configPin, wpi.modes.INPUT);
+    wpi.pinMode(configPin, wpi.INPUT);
 }
 
 button.prototype.read = function(pin){
