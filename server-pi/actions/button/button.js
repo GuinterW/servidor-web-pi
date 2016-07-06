@@ -50,6 +50,7 @@ button.prototype.configInput = function(pin){
     var configPin = pin;
     wpi.setup('wpi');
     wpi.pinMode(configPin, wpi.INPUT);
+    console.log('intput');
 }
 
 button.prototype.read = function(pin){
