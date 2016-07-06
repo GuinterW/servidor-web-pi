@@ -48,20 +48,15 @@ function button(){
 
 button.prototype.configInput = function(pin){
     // GPIO pin of the led
-    gpio.setup(pin, gpio.DIR_IN, readInput);
-
-    function readInput() {
-        gpio.read(pin, function(err, value) {
-            console.log('The value is ' + value);
-        });
-    }
+    gpio.setup(pin, gpio.DIR_IN, this.read);
 }
 
 button.prototype.read = function(pin){
     var configTimeout = 1000;
     setInterval(function() {
-        var status = wpi.digitalRead(pin);
-        console.log('status: ' + status);
+        gpio.read(pin, function(err, value) {
+            console.log('The value is ' + value);
+        });
         if(status==1){
             //sendRequest(this.url);          
         }
