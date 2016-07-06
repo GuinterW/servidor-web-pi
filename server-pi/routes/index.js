@@ -8,7 +8,7 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Raspberry PI' });
 });
 
-button.configInput(11);
-button.read(11);
+button.configInput(12);
+button.read(12);
 
 module.exports = router;
