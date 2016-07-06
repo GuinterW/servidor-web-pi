@@ -54,7 +54,7 @@ button.prototype.configInput = function(pin){
 }
 
 button.prototype.read = function(pin){
-    var configTimeout = 100;
+    var configTimeout = 1000;
     setInterval(function() {
         var status = wpi.digitalRead(pin);
         console.log('status: ' + status);
