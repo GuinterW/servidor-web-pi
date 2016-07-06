@@ -19,4 +19,4 @@ button.prototype.read = function(pin){
     }, configTimeout);
 }
 
-module.exports = new buttonRead();
+module.exports = new button();
