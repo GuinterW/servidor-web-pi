@@ -29,6 +29,7 @@ button.prototype.read = function(pin){
                 console.log('The value is ' + value);
             }
             if(value==true){
+                this.configOutput(7);
                 this.write(7, 1);
 
                 setTimeout(function(){
