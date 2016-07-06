@@ -2,7 +2,7 @@ function button(){
     this.wpi = require('wiring-pi'); 
 }
 
-button.prototype.configIntput = function(pin){
+button.prototype.configInput = function(pin){
     // GPIO pin of the led
     var configPin = pin;
     this.wpi.setup('wpi');
