@@ -4,7 +4,7 @@ var router = express.Router();
 
 /* GET home page. */
 module.exports = {
-	router.get('/', function(req, res){
+	router.get('/', function(req, res, next){
 		unlock : function() {
 		
 			var configPin = 7;
