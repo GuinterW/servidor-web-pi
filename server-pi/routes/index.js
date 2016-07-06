@@ -1,5 +1,4 @@
 var express = require('express');
-var wpi = require('wiring-pi');
 var router = express.Router();
 var button = require('./../actions/button/button.js');
 

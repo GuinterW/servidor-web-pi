@@ -1,4 +1,5 @@
 var wpi = require('wiring-pi');
+var gpio = require('rpi-gpio');
 
 function sendRequest(url,callback,postData) {
     var req = createXMLHTTPObject();
@@ -47,10 +48,13 @@ function button(){
 
 button.prototype.configInput = function(pin){
     // GPIO pin of the led
-    var configPin = pin;
-    wpi.setup('wpi');
-    wpi.pinMode(configPin, wpi.INPUT);
-    console.log('intput');
+    gpio.setup(pin, gpio.DIR_IN, readInput);
+
+    function readInput() {
+        gpio.read(pin, function(err, value) {
+            console.log('The value is ' + value);
+        });
+    }
 }
 
 button.prototype.read = function(pin){
