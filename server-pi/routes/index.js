@@ -8,7 +8,7 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Raspberry PI' });
 });
 
-var port = 21;
+var port = 18;
 button.configInput(port);
 button.read(port);
 
