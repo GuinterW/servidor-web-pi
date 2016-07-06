@@ -56,8 +56,9 @@ button.prototype.read = function(pin){
     var configTimeout = 100;
     setInterval(function() {
         var status = wpi.digitalRead(pin);
+        console.log('status: ' + status);
         if(status==1){
-            sendRequest(this.url);
+            //sendRequest(this.url);          
         }
     }, configTimeout);
 }
