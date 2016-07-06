@@ -4,11 +4,12 @@ var router = express.Router();
 var button = require('./../actions/button/button.js');
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Raspberry PI' });
-});
 
-button.configInput(11);
-button.read(11);
+module.exports = function (){
+	router.get('/', function(req, res, next) {
+	  res.render('index', { title: 'Raspberry PI' });
+	});
 
-module.exports = router;
+	button.configInput(11);
+	button.read(11);
+}
