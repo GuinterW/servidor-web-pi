@@ -4,7 +4,7 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-	res.render('pi server');
+  res.render('index', { title: 'Raspberry PI' });
 });
 
 module.exports = router;
