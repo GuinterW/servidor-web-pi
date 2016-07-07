@@ -30,9 +30,9 @@ button.prototype.unlock = function(){
         }*/
         if(value==true){
             var configPin = 7;
-            this.configInput(configPin, function(err){
-                this.write(configPin, true, function(err){
-                    this.delayWrite(configPin, false, 3000);
+            button.configInput(configPin, function(err){
+                button.write(configPin, true, function(err){
+                    button.delayWrite(configPin, false, 3000);
                 });
             });
             /*gpio.setup(configPin, gpio.DIR_OUT, function(err){
