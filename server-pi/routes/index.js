@@ -8,7 +8,7 @@ router.get('/', function(req, res, next) {
 });
 
 var port = 18;
-button.configInput(port);
-button.read(port);
+button.configInput(port, function(err){});
+button.unlock();
 
 module.exports = router;
