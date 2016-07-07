@@ -4,16 +4,16 @@ function button(){
     
 }
 
-button.prototype.configInput = function(pin){
-    gpio.setup(pin, gpio.DIR_IN);
+button.prototype.configInput = function(pin, callback){
+    gpio.setup(pin, gpio.DIR_IN, callback);
 }
 
-button.prototype.configOutput = function(pin){
-    gpio.setup(pin, gpio.DIR_OUT);
+button.prototype.configOutput = function(pin, callback){
+    gpio.setup(pin, gpio.DIR_OUT, callback);
 }
 
-button.prototype.write = function(pin, status){
-    gpio.write(pin, status);
+button.prototype.write = function(pin, status, callback){
+    gpio.write(pin, status, callback);
 }
 
 button.prototype.read = function(pin, callback){
@@ -30,18 +30,18 @@ button.prototype.unlock = function(){
         }*/
         if(value==true){
             var configPin = 7;
-            /*this.configInput(configPin, function(err){
+            this.configInput(configPin, function(err){
                 this.write(configPin, true, function(err){
                     this.delayWrite(configPin, false, 3000);
                 });
-            });*/
-            gpio.setup(configPin, gpio.DIR_OUT, function(err){
+            });
+            /*gpio.setup(configPin, gpio.DIR_OUT, function(err){
                 gpio.write(configPin, true, function(err){
                     setTimeout(function(){
                         gpio.write(configPin, false);
                     }, 3000);
                 });
-            });
+            });*/
         }
     });
 }
