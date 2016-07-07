@@ -27,11 +27,11 @@ button.prototype.read = function(pin){
                 var configPin = 7;
 
                 gpio.setup(configPin, gpio.DIR_OUT);
-
                 gpio.write(configPin, true);
 
                 setTimeout(function(){
-                    gpio.write(configPin, false);
+                    //gpio.write(configPin, false);
+                    console.log('passou 3 segundos');
                 }, 3000);
             }
         });
