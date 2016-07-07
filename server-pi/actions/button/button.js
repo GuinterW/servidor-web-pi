@@ -40,14 +40,15 @@ button.prototype.unlock = function(){
             });*/
             gpio.setup(configPin, gpio.DIR_OUT, function(err){
                 gpio.write(configPin, true, function(err){
+                    var now = new Date();  
+                    var dia = now.getDay();
+                    var mes = now.getMonth()+1;
+                    var ano = now.getFullYear();
+                    var hora = '['+now.getHours()+':'+now.getMinutes()+':'+now.getSeconds()+']';
+                    var data = 'Ativado em: '+dia+'/'+mes+'/'+ano+' - '+hora;
+                    console.log(data);
                     setTimeout(function(){
                         gpio.write(configPin, false);
-                        var now = new Date();  
-                        var dia = now.getDay();
-                        var mes = now.getMonth()+1;
-                        var ano = now.getFullYear();
-                        var data = dia+'/'+mes+'/'+ano;
-                        console.log(data);
                     }, 3000);
                 });
             });
