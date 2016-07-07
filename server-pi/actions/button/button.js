@@ -29,7 +29,7 @@ button.prototype.read = function(pin){
                 gpio.write(configPin, true, function(err){
                     setTimeout(function(){
                         gpio.write(configPin, true);
-                    }, 1000);
+                    }, 5000);
 
                     setTimeout(function(){
                         gpio.write(configPin, false);
