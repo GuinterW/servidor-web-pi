@@ -5,7 +5,7 @@ var Senha = express.Router();
 //CONEXAO SERVER.
 var mysql = require('mysql');
 var connection = mysql.createConnection({
-    host     : 'localhost',
+    host     : '192.168.1.140',
     user     : 'root',
     password : 'grenal23',
     port : 3306, //port mysql
