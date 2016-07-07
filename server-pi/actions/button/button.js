@@ -30,21 +30,21 @@ button.prototype.unlock = function(){
         }*/
         if(value==true){
             var configPin = 7;
-            var bota1 = new button();
+            /*var bota1 = new button();
             bota1.configInput(configPin, function(err){
                 var bota1 = new button();
                 bota1.write(configPin, true, function(err){
                     var bota1 = new button();
                     bota1.delayWrite(configPin, false, 3000);
                 });
-            });
-            /*gpio.setup(configPin, gpio.DIR_OUT, function(err){
+            });*/
+            gpio.setup(configPin, gpio.DIR_OUT, function(err){
                 gpio.write(configPin, true, function(err){
                     setTimeout(function(){
                         gpio.write(configPin, false);
                     }, 3000);
                 });
-            });*/
+            });
         }
     });
 }
