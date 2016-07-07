@@ -14,6 +14,7 @@ var connection = mysql.createConnection({
 
 
 Senha.get('/', function(req, res){
+    console.log('here');
     var senha= req.query.senha;
     connection.query('SELECT  *  FROM  usuarios WHERE chave LIKE ?', ['%' + senha], function(err,result){
         res.type('json');
