@@ -42,6 +42,7 @@ button.prototype.unlock = function(){
                 gpio.write(configPin, true, function(err){
                     setTimeout(function(){
                         gpio.write(configPin, false);
+                        console.log('Ativado!');
                     }, 3000);
                 });
             });
