@@ -28,7 +28,7 @@ button.prototype.read = function(pin){
                 gpio.on('change', function(channel, value) {
                     console.log('Channel ' + channel + ' value is now ' + value);
                 });
-                gpio.setup(configPin, gpio.DIR_IN, gpio.EDGE_BOTH);
+                gpio.setup(configPin, gpio.DIR_OUT, gpio.EDGE_BOTH);
             }
         });
     }, configTimeout);
