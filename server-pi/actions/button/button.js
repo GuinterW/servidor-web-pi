@@ -31,11 +31,11 @@ button.prototype.unlock = function(){
         if(value==true){
             var configPin = 7;
             var bota1 = new button();
-            button.configInput(configPin, function(err){
+            bota1.configInput(configPin, function(err){
                 var bota1 = new button();
-                button.write(configPin, true, function(err){
+                bota1.write(configPin, true, function(err){
                     var bota1 = new button();
-                    button.delayWrite(configPin, false, 3000);
+                    bota1.delayWrite(configPin, false, 3000);
                 });
             });
             /*gpio.setup(configPin, gpio.DIR_OUT, function(err){
