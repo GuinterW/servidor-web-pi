@@ -30,8 +30,11 @@ button.prototype.unlock = function(){
         }*/
         if(value==true){
             var configPin = 7;
+            var button = new button();
             button.configInput(configPin, function(err){
+                var button = new button();
                 button.write(configPin, true, function(err){
+                    var button = new button();
                     button.delayWrite(configPin, false, 3000);
                 });
             });
