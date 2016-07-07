@@ -1,6 +1,7 @@
 var express = require('express');
 var button = require('./../actions/button/button.js');
 var router = express.Router();
+var gpio = require('rpi-gpio');
 
 /* GET home page. */
 
