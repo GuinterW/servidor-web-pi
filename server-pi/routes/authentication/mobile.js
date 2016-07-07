@@ -14,7 +14,7 @@ var connection = mysql.createConnection({
 
 
 Senha.get('/:senha', function(req, res){
-    var senha= req.params.senha;
+    var senha= req.query.senha;
     connection.query('SELECT  *  FROM  usuarios WHERE chave LIKE ?', ['%' + senha], function(err,result){
         res.type('json');
         //res.redirect('../unlock');
