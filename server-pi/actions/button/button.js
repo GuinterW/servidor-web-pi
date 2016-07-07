@@ -25,14 +25,10 @@ button.prototype.read = function(pin){
             }
             if(value==true){
                 var configPin = 7;
-                gpio.setup(configPin, gpio.DIR_OUT);
-                gpio.write(configPin, true, function(err){
-                    /*
-                    setTimeout(function(){
-                        gpio.write(configPin, false);
-                    }, 3000);
-                    */
+                gpio.on('change', function(channel, value) {
+                    console.log('Channel ' + channel + ' value is now ' + value);
                 });
+                gpio.setup(configPin, gpio.DIR_IN, gpio.EDGE_BOTH);
             }
         });
     }, configTimeout);
