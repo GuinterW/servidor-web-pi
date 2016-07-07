@@ -5,11 +5,11 @@ function button(){
 }
 
 button.prototype.configInput = function(pin, callback){
-    gpio.setup(pin, gpio.DIR_IN);
+    gpio.setup(pin, gpio.DIR_IN, callback);
 }
 
 button.prototype.configOutput = function(pin, callback){
-    gpio.setup(pin, gpio.DIR_OUT);
+    gpio.setup(pin, gpio.DIR_OUT, callback);
 }
 
 button.prototype.write = function(pin, status, callback){
