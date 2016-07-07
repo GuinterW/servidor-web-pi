@@ -17,7 +17,7 @@ button.prototype.write = function(pin, status){
 }
 
 button.prototype.read = function(pin){
-    var configTimeout = 300;
+    var configTimeout = 500;
     setInterval(function() {
         gpio.read(pin, function(err, value) {
             console.log('Teste 1: ' + value);
