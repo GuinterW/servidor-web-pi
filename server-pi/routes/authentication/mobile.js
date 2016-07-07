@@ -17,7 +17,8 @@ Senha.get('/:senha', function(req, res){
     var senha= req.params.senha;
     connection.query('SELECT  *  FROM  usuarios WHERE chave LIKE ?', ['%' + senha], function(err,result){
         res.type('json');
-        res.redirect('../unlock');
+        //res.redirect('../unlock');
+        res.sendStatus(200);
     });
 });
 
