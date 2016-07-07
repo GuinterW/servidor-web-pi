@@ -6,12 +6,7 @@ var router = express.Router();
 
 router.get('/', function(req, res, next) {
 
-	button.configOutput(7);
-	button.write(7, true);
-
-	setTimeout(function(){
-		button.write(7, false);
-	}, 3000);
+	button.unlock();
 
 	res.sendStatus(200);
 });
