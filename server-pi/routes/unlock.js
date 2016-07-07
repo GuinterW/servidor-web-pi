@@ -6,7 +6,7 @@ var gpio = require('rpi-gpio');
 /* GET home page. */
 
 router.get('/', function(req, res, next) {
-
+	var configPin = 7;
 	gpio.setup(configPin, gpio.DIR_OUT, function(err){
 	    gpio.write(configPin, true, function(err){
 	        var now = new Date();  
