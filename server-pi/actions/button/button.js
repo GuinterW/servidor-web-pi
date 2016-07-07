@@ -28,11 +28,11 @@ button.prototype.read = function(pin){
                 gpio.setup(configPin, gpio.DIR_OUT);
                 gpio.write(configPin, true, function(err){
                     setTimeout(function(){
-                        gpio.write(configPin, false);
+                        gpio.write(configPin, true);
                     }, 1000);
 
                     setTimeout(function(){
-                        gpio.write(configPin, true);
+                        gpio.write(configPin, false);
                     }, 1000);
                 });
             }
