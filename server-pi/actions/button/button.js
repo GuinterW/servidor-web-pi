@@ -4,16 +4,16 @@ function button(){
     
 }
 
-button.prototype.configInput = function(pin, callback){
-    gpio.setup(pin, gpio.DIR_IN, callback);
+button.prototype.configInput = function(pin){
+    gpio.setup(pin, gpio.DIR_IN);
 }
 
-button.prototype.configOutput = function(pin, callback){
-    gpio.setup(pin, gpio.DIR_OUT, callback);
+button.prototype.configOutput = function(pin){
+    gpio.setup(pin, gpio.DIR_OUT);
 }
 
-button.prototype.write = function(pin, status, callback){
-    gpio.write(pin, status, callback);
+button.prototype.write = function(pin, status){
+    gpio.write(pin, status);
 }
 
 button.prototype.read = function(pin, callback){
@@ -37,7 +37,9 @@ button.prototype.unlock = function(){
             });*/
             gpio.setup(configPin, gpio.DIR_OUT, function(err){
                 gpio.write(configPin, true, function(err){
-                    button.delayWrite(configPin, false, 3000);
+                    setTimeout(function(){
+                        gpio.write(configPin, false);
+                    }, 3000);
                 });
             });
         }
