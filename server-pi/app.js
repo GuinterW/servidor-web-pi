@@ -7,6 +7,7 @@ var bodyParser = require('body-parser');
 
 var inicio = require('./routes/index');
 var unlock = require('./routes/unlock');
+var authentication = require('./routes/authentication/mobile');
 
 var app = express();
 
@@ -24,6 +25,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', inicio);
 app.use('/unlock', unlock);
+app.use('/authentication/mobile', authentication);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
