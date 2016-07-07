@@ -42,7 +42,7 @@ button.prototype.unlock = function(){
                 gpio.write(configPin, true, function(err){
                     setTimeout(function(){
                         gpio.write(configPin, false);
-                        console.log('Ativado!');
+                        this.date();
                     }, 3000);
                 });
             });
@@ -54,6 +54,15 @@ button.prototype.delayWrite = function(pin, status, time){
     setTimeout(function(){
         gpio.write(pin, status);
     }, time);
+}
+
+button.prototype.date = function(){
+    var now = new Date();  
+    var dia = now.getDay();
+    var mes = now.getMonth()+1;
+    var ano = now.getFullYear();
+    var data = dia+'/'+mes+'/'+ano;
+    console.log(data);
 }
 
 module.exports = new button();
