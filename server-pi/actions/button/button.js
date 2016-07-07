@@ -29,8 +29,8 @@ button.prototype.read = function(pin){
                 gpio.setup(configPin, gpio.DIR_OUT);
                 gpio.write(configPin, true, function(err){
                     setTimeout(function(){
-                        gpio.write(configPin, true);
-                    }, 5000);
+                        gpio.write(configPin, false);
+                    }, 3000);
                 });
             }
         });
