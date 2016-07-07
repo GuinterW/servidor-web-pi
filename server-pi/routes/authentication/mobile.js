@@ -3,8 +3,8 @@ var Senha = express.Router();
 //var Reserva = getmodule('api/api');
 
 //CONEXAO SERVER.
-/*var mysql = require('mysql');
-var connection = mysql.createConnection({
+var mysql = require('mysql');
+/**var connection = mysql.createConnection({
     host     : '192.168.1.140',
     user     : 'root',
     password : 'grenal23',
@@ -19,8 +19,8 @@ Senha.get('/', function(req, res){
         res.type('json');
         //res.redirect('../unlock');
         res.sendStatus(200);
-    });
-    res.sendStatus(200);*/
+    });*/
+    res.sendStatus(200);
 });
 
 module.exports = Senha;
