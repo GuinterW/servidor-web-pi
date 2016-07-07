@@ -1,4 +1,3 @@
-var wpi = require('wiring-pi');
 var gpio = require('rpi-gpio');
 
 function button(){
@@ -6,19 +5,15 @@ function button(){
 }
 
 button.prototype.configInput = function(pin){
-    // GPIO pin of the led
     gpio.setup(pin, gpio.DIR_IN, this.read);
 }
 
 button.prototype.configOutput = function(pin){
-    var configPin = pin;
-
-    wpi.setup('wpi');
-    wpi.pinMode(configPin, wpi.OUTPUT);
+    gpio.setup(pin, gpio.DIR_OUT);
 }
 
 button.prototype.write = function(pin, status){
-    wpi.digitalWrite(pin, status);
+    gpio.write(pin, status);
 }
 
 button.prototype.read = function(pin){
@@ -31,14 +26,15 @@ button.prototype.read = function(pin){
             if(value==true){
                 var configPin = 7;
 
-                wpi.setup('wpi');
-                wpi.pinMode(configPin, wpi.OUTPUT);
+                gpio.setup(configPin, gpio.DIR_OUT);
 
-                wpi.digitalWrite(configPin, 1);
+                gpio.write(configPin, true, function(err){
+                    setTimeout(function(){
+                        gpio.write(configPin, false);
+                    }, 3000);
+                })
 
-                setTimeout(function(){
-                    wpi.digitalWrite(configPin, 0);
-                }, 3000);
+                
             }
         });
     }, configTimeout);

@@ -1,5 +1,4 @@
 var express = require('express');
-var wpi = require('wiring-pi');
 var button = require('./../actions/button/button.js');
 var router = express.Router();
 
@@ -8,10 +7,10 @@ var router = express.Router();
 router.get('/', function(req, res, next) {
 
 	button.configOutput(7);
-	button.write(7, 1);
+	button.write(7, true);
 
 	setTimeout(function(){
-		button.write(7, 0);
+		button.write(7, false);
 	}, 3000);
 
 	res.sendStatus(200);
