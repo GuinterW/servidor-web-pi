@@ -19,7 +19,7 @@ button.prototype.write = function(pin, status, callback){
 button.prototype.read = function(pin, callback){
     var configInterval = 300;
     setInterval(function() {
-        gpio.read(pin, callback});
+        gpio.read(pin, callback);
     }, configInterval);
 }
 
