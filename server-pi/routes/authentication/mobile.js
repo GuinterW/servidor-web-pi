@@ -20,6 +20,9 @@ Senha.get('/', function(req, res){
         //res.redirect('../unlock');
         res.sendStatus(200);
     });*/
+    if(senha=='123456'){
+        res.redirect('../unlock');
+    }
     res.sendStatus(200);
 });
 
