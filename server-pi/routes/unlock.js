@@ -7,7 +7,7 @@ var gpio = require('rpi-gpio');
 
 router.get('/', function(req, res, next) {
   var Gpio = require('onoff').Gpio,
-    led = new Gpio(7, 'out');
+    led = new Gpio(4, 'out');
   led.writeSync(1);
   setTimeout(function(){
     led.writeSync(0);

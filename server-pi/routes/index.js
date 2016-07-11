@@ -8,8 +8,8 @@ router.get('/', function(req, res, next) {
 });
 
 var Gpio = require('onoff').Gpio,
-  led = new Gpio(7, 'out'),
-  button = new Gpio(18, 'in', 'rising');
+  led = new Gpio(4, 'out'),
+  button = new Gpio(24, 'in', 'rising');
 
 button.watch(function (err, value) {
   if (err) {
