@@ -17,6 +17,7 @@ button.watch(function(err, value){
   if(value==1){
     led();
   }
+  res.sendStatus(200);
 });
 
 module.exports = router;

@@ -6,5 +6,4 @@ module.exports = function(){
 	setTimeout(function(){
 	led.writeSync(0);
 	},3000);
-	res.sendStatus(200);
 }
