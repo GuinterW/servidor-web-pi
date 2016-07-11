@@ -6,7 +6,6 @@ function mongo(){
 }
 
 mongo.prototype.find = function(queryObj, res){
-    //this.User.findOne({name: 'MODULUS ADMIN'}, function (err, userObj) {
     this.User.findOne(queryObj, function (err, userObj) {
         if (err) {
             console.log(err);
@@ -21,7 +20,6 @@ mongo.prototype.find = function(queryObj, res){
 }
 
 mongo.prototype.insert = function(newUserObj){
-    //var newUser = new this.User({name: 'modulus admin', age: 42, roles: ['admin', 'moderator', 'user']});
     var newUser = new this.User(newUserObj);
     newUser.name = newUser.name.toUpperCase();
     console.log(newUser);
@@ -35,7 +33,6 @@ mongo.prototype.insert = function(newUserObj){
 }
 
 mongo.prototype.update = function(queryObj){
-    //User.findOne({name: 'MODULUS ADMIN'}, function (err, userObj) {
     User.findOne(queryObj, function (err, userObj) {
         if (err) {
             console.log(err);
