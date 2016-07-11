@@ -14,7 +14,7 @@ mongo.prototype.find = function(queryObj, res){
             res.redirect("./../unlock");
         } else {
             console.log('User not found!');
-            res.sendStatus(200);
+            res.sendStatus(404);
         }
     });
 }
