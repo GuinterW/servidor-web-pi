@@ -5,7 +5,7 @@ var Mongo = require("./../../classes/mongo/mongo.js");
 Senha.get('/', function(req, res){
     var senha= req.query.senha;
     Mongo.find({key:senha});
-    res.redirect("./../unlock.js");
+    res.redirect("./../unlock");
 });
 
 module.exports = Senha;
