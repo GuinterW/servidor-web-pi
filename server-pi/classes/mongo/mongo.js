@@ -5,13 +5,14 @@ function mongo(){
     this.User = mongoose.model('users', {name: String, key: String, nfc: String});
 }
 
-mongo.prototype.find = function(queryObj){
+mongo.prototype.find = function(queryObj, res){
     //this.User.findOne({name: 'MODULUS ADMIN'}, function (err, userObj) {
     this.User.findOne(queryObj, function (err, userObj) {
         if (err) {
             console.log(err);
         } else if (userObj) {
             console.log('Found:' + userObj + ' - ' + queryObj);
+            res.redirect("./../../routes/unlock");
         } else {
             console.log('User not found!');
         }
