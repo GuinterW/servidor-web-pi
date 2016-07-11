@@ -5,6 +5,7 @@ var assert = require('assert');
 var ObjectId = require('mongodb').ObjectID;
 var url = 'mongodb://192.168.1.117:27017/test';
 
+/*
 var insertDocument = function(db, callback) {
    db.collection('restaurants').insertOne( {
     "_id" : ObjectId("54c955492b7c8eb21818bd09"),
@@ -17,17 +18,18 @@ var insertDocument = function(db, callback) {
     callback();
   });
 };
+*/
 
 //res.redirect('../unlock');
 
 Senha.get('/', function(req, res){
   var senha= req.query.senha;
-  MongoClient.connect(url, function(err, db) {
+/*  MongoClient.connect(url, function(err, db) {
     assert.equal(null, err);
     insertDocument(db, function() {
       db.close();
     });
-  });
+  });*/
 });
 
 module.exports = Senha;

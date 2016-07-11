@@ -1,5 +1,4 @@
 var gpio = require('rpi-gpio');
-
 function button(){
     
 }
