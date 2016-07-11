@@ -6,8 +6,10 @@ var gpio = require('rpi-gpio');
 /* GET home page. */
 
 router.get('/', function(req, res, next) {
-  led();
-  res.sendStatus(200);
+    if(req.query.key=='grenal123'){
+      led();
+      res.sendStatus(200);
+    }
 });
 
 module.exports = router;
