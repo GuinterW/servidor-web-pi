@@ -1,12 +1,13 @@
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/test');
+mongoose.connect('mongodb://localhost/authentication');
 
 function mongo(){
-    this.User = mongoose.model('User', {name: String, roles: Array, age: Number});
+    this.User = mongoose.model('users', {name: String, key: String, nfc: String});
 }
 
-mongo.prototype.find = function(){
-    this.User.findOne({name: 'MODULUS ADMIN'}, function (err, userObj) {
+mongo.prototype.find = function(queryObj){
+    //this.User.findOne({name: 'MODULUS ADMIN'}, function (err, userObj) {
+    this.User.findOne(queryObj, function (err, userObj) {
         if (err) {
             console.log(err);
         } else if (userObj) {
@@ -17,11 +18,12 @@ mongo.prototype.find = function(){
     });
 }
 
-mongo.prototype.insert = function(){
-    var user1 = new this.User({name: 'modulus admin', age: 42, roles: ['admin', 'moderator', 'user']});
-    user1.name = user1.name.toUpperCase();
-    console.log(user1);
-    user1.save(function (err, userObj) {
+mongo.prototype.insert = function(newUserObj){
+    //var newUser = new this.User({name: 'modulus admin', age: 42, roles: ['admin', 'moderator', 'user']});
+    var newUser = new this.User(newUserObj);
+    newUser.name = newUser.name.toUpperCase();
+    console.log(newUser);
+    newUser.save(function (err, userObj) {
         if (err) {
             console.log(err);
         } else {
@@ -30,15 +32,16 @@ mongo.prototype.insert = function(){
     });
 }
 
-mongo.prototype.update = function(){
-    User.findOne({name: 'MODULUS ADMIN'}, function (err, userObj) {
+mongo.prototype.update = function(queryObj){
+    //User.findOne({name: 'MODULUS ADMIN'}, function (err, userObj) {
+    User.findOne(queryObj, function (err, userObj) {
         if (err) {
             console.log(err);
         } else if (userObj) {
             console.log('Found:', userObj);
 
         //For demo purposes lets update the user on condition.
-        if (userObj.age != 30) {
+        /*if (userObj.age != 30) {
             //Some demo manipulation
             userObj.age += 30;
 
@@ -50,7 +53,7 @@ mongo.prototype.update = function(){
                     console.log('Updated', userObj);
                 }
             });
-        }
+        }*/
         } else {
             console.log('User not found!');
         }
