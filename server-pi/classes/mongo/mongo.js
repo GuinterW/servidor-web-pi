@@ -12,9 +12,10 @@ mongo.prototype.find = function(queryObj, res){
             console.log(err);
         } else if (userObj) {
             console.log('Found:' + userObj + ' - ' + queryObj);
-            res.redirect("./../../routes/unlock");
+            res.redirect("./../unlock");
         } else {
             console.log('User not found!');
+            res.sendStatus(200);
         }
     });
 }
