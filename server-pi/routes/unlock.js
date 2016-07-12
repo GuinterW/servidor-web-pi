@@ -6,7 +6,7 @@ var gpio = require('rpi-gpio');
 /* GET home page. */
 
 router.get('/', function(req, res, next) {
-    if(req.query.key=='fjdn!=?fjdn!=?fuio9==2W'){
+    if(req.query.key=='DD2016TRNEE'){
         led();
         res.sendStatus(200);
     }
