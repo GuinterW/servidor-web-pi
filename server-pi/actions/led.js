@@ -4,6 +4,6 @@ module.exports = function(){
     
 	led.writeSync(1);
 	setTimeout(function(){
-	led.writeSync(0);
+		led.writeSync(0);
 	},3000);
 }
