@@ -3,7 +3,7 @@ var Senha = express.Router();
 var Mongo = require("./../../classes/mongo/mongo.js");
 
 Senha.get('/', function(req, res){
-    var senha= req.query.senha;
+    var senha = req.query.senha;
     Mongo.find({key:senha}, res, function(res){
         res.redirect("./../unlock?key=fjdn!=?fuio9==2W");
     });
