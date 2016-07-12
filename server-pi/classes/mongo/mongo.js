@@ -5,13 +5,13 @@ function mongo(){
     this.User = mongoose.model('users', {name: String, key: String, nfc: String});
 }
 
-mongo.prototype.find = function(queryObj, res){
+mongo.prototype.find = function(queryObj, res, callback){
     this.User.findOne(queryObj, function (err, userObj) {
         if (err) {
             console.log(err);
         } else if (userObj) {
-            console.log('Found:' + userObj + ' - ' + queryObj);
-            res.redirect("./../unlock?key=fjdn!=?fuioeawuifpEJP9!=?3P98JEWAD9V32H9F8Nn?f9Q3NF9UHQ3HIu2qh!eh2qHE92HQUE==2W");
+            console.log('Found:' + userObj);
+            callback();
         } else {
             console.log('User not found!');
             res.sendStatus(404);
@@ -19,7 +19,7 @@ mongo.prototype.find = function(queryObj, res){
     });
 }
 
-mongo.prototype.insert = function(newUserObj){
+mongo.prototype.insert = function(newUserObj, callback){
     var newUser = new this.User(newUserObj);
     newUser.name = newUser.name.toUpperCase();
     console.log(newUser);
@@ -28,17 +28,18 @@ mongo.prototype.insert = function(newUserObj){
             console.log(err);
         } else {
             console.log('saved successfully:', userObj);
+            callback();
         }
     });
 }
 
-mongo.prototype.update = function(queryObj){
+mongo.prototype.update = function(queryObj, callback){
     User.findOne(queryObj, function (err, userObj) {
         if (err) {
             console.log(err);
         } else if (userObj) {
             console.log('Found:', userObj);
-
+            callback();
         //For demo purposes lets update the user on condition.
         /*if (userObj.age != 30) {
             //Some demo manipulation

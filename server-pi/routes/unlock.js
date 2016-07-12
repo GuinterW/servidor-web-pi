@@ -7,8 +7,11 @@ var gpio = require('rpi-gpio');
 
 router.get('/', function(req, res, next) {
     if(req.query.key=='fjdn!=?fuioeawuifpEJP9!=?3P98JEWAD9V32H9F8Nn?f9Q3NF9UHQ3HIu2qh!eh2qHE92HQUE==2W'){
-      led();
-      res.sendStatus(200);
+        led();
+        res.sendStatus(200);
+    }
+    else {
+        res.sendStatus(404);
     }
 });
 
