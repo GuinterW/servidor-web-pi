@@ -11,7 +11,7 @@ mongo.prototype.find = function(queryObj, res){
             console.log(err);
         } else if (userObj) {
             console.log('Found:' + userObj + ' - ' + queryObj);
-            res.redirect("./../unlock?key=grenal123");
+            res.redirect("./../unlock?key=fjdn!=?fuioeawuifpEJP9!=?3P98JEWAD9V32H9F8Nn?f9Q3NF9UHQ3HIu2qh!eh2qHE92HQUE==2W");
         } else {
             console.log('User not found!');
             res.sendStatus(404);
