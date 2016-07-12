@@ -7,12 +7,12 @@ function mongo(){
 
 mongo.prototype.find = function(queryObj, res, callback){
     this.User.findOne(queryObj, function (err, userObj) {
-        if (err) {
+        if(err){
             console.log(err);
-        } else if (userObj) {
+        }else if(userObj){
             console.log('Found:' + userObj);
-            callback(res);
-        } else {
+            res.redirect("./../unlock?key=fjdn!=?fuio9==2W");
+        }else{
             console.log('User not found!');
             res.sendStatus(404);
         }
