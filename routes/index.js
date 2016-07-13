@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var led = require('./../actions/lock.js');
+var lock = require('./../actions/lock.js');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -15,7 +15,7 @@ button.watch(function(err, value){
     throw err;
   }
   if(value==1){
-    led();
+    lock();
   }
 });
 
