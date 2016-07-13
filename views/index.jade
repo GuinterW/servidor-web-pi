@@ -1,5 +1,11 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  .container
+      header
+        img(src='images/logo.png')
+      section.main
+        .switch
+          input(type='checkbox')
+          label
+            i.icon-off
