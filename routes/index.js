@@ -19,7 +19,7 @@ button.watch(function(err, value){
     	throw err;
   	}
   	if(value==1){
-    	lock('buttonOut');
+    	lock('buttonOut', 'German');
   	}
 });
 
