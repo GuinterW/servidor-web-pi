@@ -16,10 +16,15 @@ module.exports = function(device, user){
         
     lock.writeSync(1);
     sound();
+<<<<<<< 98fc116112d624d84e87d9d67dca57fbfc8f8e68
     
     console.log(insertObj);
 
     mongo.insert(insertObj, function(){console.log('chega, não da mais!')});
+=======
+    console.log(insertObj);
+    mongo.insert(insertObj);
+>>>>>>> geison
     setTimeout(function(){
         lock.writeSync(0);
     },3000);
