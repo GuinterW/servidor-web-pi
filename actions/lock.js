@@ -17,7 +17,7 @@ module.exports = function(device, user){
     rele.writeSync(1);
     lock.writeSync(1);
     sound();
-    mongo("historic", {register: {dateTime: String, user: String, device: String}});
+    //mongo("historic", {register: {dateTime: String, user: String, device: String}});
     mongo.insert(insertObj);
     setTimeout(function(){
         lock.writeSync(0);
