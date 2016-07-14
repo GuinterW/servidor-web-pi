@@ -2,7 +2,7 @@ var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/authentication');
 
 function mongo(collection, modelObj){
-    this.model = mongoose.model(collection, modelObj);
+    this.model = mongoose.model('users', {user: {name: String, key: String, nfc: String}});
 }
 
 mongo.prototype.find = function(queryObj, res, callback){
