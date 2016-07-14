@@ -22,7 +22,6 @@ mongo.prototype.find = function(queryObj, res, callback){
 
 mongo.prototype.insert = function(newUserObj, callback){
     var newUser = new this.model(newUserObj);
-    newUser.name = newUser.name.toUpperCase();
     console.log(newUser);
     newUser.save(function (err, userObj) {
         if (err) {
