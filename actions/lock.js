@@ -7,7 +7,7 @@ module.exports = function(device, user){
     var ano = now.getFullYear();
     var hora = now.getHours()+':'+now.getMinutes()+':'+now.getSeconds();
     var data = dia+'/'+mes+'/'+ano+' - '+hora;
-    var insertObj = {register: {dateTime: data, user: user, device: device}};
+    var insertObj = {dateTime: data, user: user, device: device};
     var Gpio = require('onoff').Gpio,
         lock = new Gpio(20, 'out'),
         vcc = new Gpio(26, 'out'),
@@ -17,7 +17,6 @@ module.exports = function(device, user){
     rele.writeSync(1);
     lock.writeSync(1);
     sound();
-    //mongo("historic", {register: {dateTime: String, user: String, device: String}});
     mongo.insert(insertObj);
     setTimeout(function(){
         lock.writeSync(0);
