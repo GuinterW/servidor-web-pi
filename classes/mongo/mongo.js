@@ -22,6 +22,7 @@ mongo.prototype.find = function(queryObj, res, callback){
 
 mongo.prototype.insert = function(newUserObj, callback){
     var newRegister = new historic(newUserObj);
+    console.log(newUserObj);
     console.log(newRegister);
     newRegister.save(function (err, userObj) {
         if (err) {
