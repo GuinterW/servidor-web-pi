@@ -6,7 +6,7 @@ var gpio = require('rpi-gpio');
 
 router.get('/', function(req, res, next) {
     if(req.query.key=='DD2016TRNEE'){
-        lock(re.query.device, req.query.user);
+        lock();
         sound();
         res.sendStatus(200);
     }

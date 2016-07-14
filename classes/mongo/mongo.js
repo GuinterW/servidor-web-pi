@@ -1,12 +1,14 @@
 var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/authentication');
+var users = mongoose.model('user', {name: String, key: String, nfc: String});
+var historic = mongoose.model('historic', {dateTime: String, user: String, device: String});
 
-function mongo(collection, modelObj){
-    this.model = mongoose.model('users', {user: {name: String, key: String, nfc: String}});
+function mongo(){
+
 }
 
 mongo.prototype.find = function(queryObj, res, callback){
-    this.model.findOne(queryObj, function (err, userObj) {
+    users.findOne(queryObj, function (err, userObj) {
         if(err){
             console.log(err);
         }else if(userObj){
@@ -21,7 +23,7 @@ mongo.prototype.find = function(queryObj, res, callback){
 }
 
 mongo.prototype.insert = function(newUserObj, callback){
-    var newUser = new this.model(newUserObj);
+    var newRegister = new historic(newUserObj);
     console.log(newUser);
     newUser.save(function (err, userObj) {
         if (err) {
@@ -34,7 +36,7 @@ mongo.prototype.insert = function(newUserObj, callback){
 }
 
 mongo.prototype.update = function(queryObj, callback){
-    this.model.findOne(queryObj, function (err, userObj) {
+    users.findOne(queryObj, function (err, userObj) {
         if (err) {
             console.log(err);
         } else if (userObj) {
