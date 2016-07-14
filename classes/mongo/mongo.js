@@ -12,9 +12,7 @@ mongo.prototype.find = function(queryObj, res, callback){
         if(err){
             console.log(err);
         }else if(userObj){
-            var user = userObj.name;
-            console.log(user);
-            callback();
+            callback(res, userObj);
         }else{
             console.log('User not found!');
             res.sendStatus(404);
