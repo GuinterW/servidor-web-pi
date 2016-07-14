@@ -6,8 +6,12 @@ var gpio = require('rpi-gpio');
 
 router.get('/', function(req, res, next) {
     if(req.query.key=='DD2016TRNEE'){
+<<<<<<< b09b80ec00725ea102de711ae6a9b08fe361ab3d
         lock();
         sound();
+=======
+        lock(re.query.device, req.query.user);
+>>>>>>> mongo
         res.sendStatus(200);
     }
     else {
