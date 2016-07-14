@@ -6,9 +6,9 @@ module.exports = function(){
 
 	setTimeout(function () {
 		music.pause();
-	}, 5000);
+	}, 1000);
 	 
 	setTimeout(function () {
 		music.resume();
-	}, 5000);
+	}, 3000);
 }
