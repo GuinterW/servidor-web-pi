@@ -12,15 +12,11 @@ module.exports = function(device, user){
     var insertObj = {dateTime: data, user: user, device: device};
     
     var Gpio = require('onoff').Gpio,
-        lock = new Gpio(20, 'out'),
-        vcc = new Gpio(26, 'out'),
-        rele = new Gpio(16, 'out');
-    
-    vcc.writeSync(1);
-    rele.writeSync(1);
+        lock = new Gpio(20, 'out');
+        
     lock.writeSync(1);
     sound();
-    mongo.insert(insertObj);
+    mongo.insert(insertObj, function(){console.log('chega, não da mais!')});
     setTimeout(function(){
         lock.writeSync(0);
     },3000);
