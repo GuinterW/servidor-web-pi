@@ -28,6 +28,7 @@ a{
   margin: 0;
 }
 
+/*
 header{
   width: 100%;
   text-align: center;
@@ -37,7 +38,9 @@ header{
 
 header > img{
 	max-height: 250px;
-}
+}*/
+
+
 .switch {
   margin: 50px auto;
   position: relative;
